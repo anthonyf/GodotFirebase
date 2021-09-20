@@ -72,7 +72,7 @@ func _load_config() -> void:
         return
     else:    
         var env = ConfigFile.new()
-        var err = env.load("res://addons/godot-firebase/.env")
+        var err = env.load("res://addons/godot-firebase/config.env")
         if err == OK:
             for key in _config.keys(): 
                 var value : String = env.get_value(_ENVIRONMENT_VARIABLES, key, "")
@@ -81,7 +81,7 @@ func _load_config() -> void:
                 else:
                     _config[key] = value
         else:
-            printerr("Unable to read .env file at path 'res://addons/godot-firebase/.env'")
+            printerr("Unable to read config.env file at path 'res://addons/godot-firebase/config.env'")
 
 func _printerr(error : String) -> void:
     print("[Firebase Error] >> "+error)
